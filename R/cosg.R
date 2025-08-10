@@ -57,7 +57,7 @@ cosg<-function(
   ### Obtain the cellxgene data
   if(object@version < "5.0.0" & packageVersion("Seurat") < "5.0.0"){
     genexcell<-Seurat::GetAssayData(object = object[[assay]], slot = slot)
-  }else if(object@version < "5.0.0"){
+  }else{
     genexcell<-Seurat::GetAssayData(object = object[[assay]], layer = slot)
   }
   
