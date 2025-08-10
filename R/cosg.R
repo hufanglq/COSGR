@@ -49,7 +49,6 @@ cosg<-function(
     n_genes_user=100
 ){
   if (!is.null(object@version)) {
-    seurat_version <- object@version
     print(paste0("Seurat object version: ",object@version))
   } else {
     print("Seurat object does not contain version information.")
@@ -74,9 +73,7 @@ cosg<-function(
     }else{
       stop('Cannot perform marker gene identification on a single cluster. Please reset the groups variable.')
     }
-    
   }
-  
   
   ### unique groups
   groups_order=sort(unique(group_info))
@@ -105,7 +102,6 @@ cosg<-function(
     cluster_mat[order_i,idx_i]=1
     order_i=order_i+1
   }
-  
   
   cluster_mat_sparse=as(cluster_mat, "dgCMatrix")
   ### Calculate the cosine similarity
